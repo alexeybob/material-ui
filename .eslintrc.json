@@ -32,7 +32,8 @@
     "@typescript-eslint",
     "import",
     "testing-library",
-    "jest-dom"
+    "jest-dom",
+    "prettier"
   ],
   "settings":{
     "react":{
