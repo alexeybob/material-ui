@@ -13,8 +13,6 @@ const format = require('date-fns/format');
  * Full-text search: http://localhost:3004/api/users?q=questioning
  */
 function generateUserById(id) {
-  const createdAt = faker.date.past();
-  const expiredAt = faker.date.future();
   const firstName = faker.name.firstName();
   const lastName = faker.name.lastName();
 
@@ -26,14 +24,8 @@ function generateUserById(id) {
     gender: faker.name.gender(),
     email: faker.internet.email(),
     confirmed: faker.random.boolean(),
-    createdAt: {
-      v: createdAt,
-      f: format(createdAt, 'dd/MM/yyyy')
-    },
-    expiredAt: {
-      v: expiredAt,
-      f: format(expiredAt, 'dd/MM/yyyy')
-    }
+    createdAt: faker.date.past(),
+    expiredAt: faker.date.future()
   };
 }
 

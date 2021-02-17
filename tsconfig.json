@@ -1,4 +1,39 @@
 {
-  "extends": "./tsconfig.local.json",
-  "compilerOptions": {}
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2020",
+      "dom",
+      "webworker"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ],
+    "allowJs": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": "src"
+  },
+  "include": [
+    "src"
+  ],
+  "compileOnSave": false
 }

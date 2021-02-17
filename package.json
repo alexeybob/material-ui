@@ -43,6 +43,7 @@
     "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.27",
     "@types/react": "^17.0.1",
+    "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.7",
@@ -66,6 +67,7 @@
     "@types/jest": "^26.0.20",
     "@types/json-server": "^0.14.3",
     "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
     "date-fns": "^2.17.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -83,6 +85,7 @@
     "json-server": "^0.16.3",
     "lint-staged": "^10.5.4",
     "pinst": "^2.1.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "react-bootstrap": "^1.5.0"
   }
 }
