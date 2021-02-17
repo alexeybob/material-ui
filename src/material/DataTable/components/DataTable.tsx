@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import DataTableHead from './DataTableHead';
-import DataTableBody from './DataTableBody';
+import { DataTableBody, DataTableHead } from '.';
 
 const DataTable: FC = () => {
   return (

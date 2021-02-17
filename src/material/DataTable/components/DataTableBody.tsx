@@ -18,7 +18,9 @@ const DataTableBody: FC = () => {
         })
       ) : (
         <tr>
-          <td colSpan={columns.length}>There are no data</td>
+          <td align="center" colSpan={columns.length}>
+            There are no data
+          </td>
         </tr>
       ),
     [columns, data]
