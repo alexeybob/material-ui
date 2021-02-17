@@ -19,7 +19,7 @@ const DataTableProvider: FC = ({ children }) => {
 
   const _setPage = useCallback(
     (page: IDataTableProps['page']) => {
-      setPage(page);
+      page && setPage(page);
     },
     [setPage]
   );

@@ -1,10 +1,18 @@
 import { useState, useCallback, useEffect } from 'react';
 import { IDataTableProps } from '../models';
 
-const usePaginate = (data: IDataTableProps['data']) => {
-  const [page, _setPage] = useState(1);
-  const [perPage] = useState(15);
-  const [length, setLength] = useState(0);
+interface IReturnedObject {
+  perPage: number;
+  length: number;
+  page: number;
+  pageData: IDataTableProps['data'];
+  setPage: (page: number) => void;
+}
+
+const usePaginate = (data: IDataTableProps['data']): IReturnedObject => {
+  const [page, setPage] = useState<number>(1);
+  const [perPage] = useState<number>(15);
+  const [length, setLength] = useState<number>(0);
   const [pageData, setPageData] = useState<IDataTableProps['data']>([]);
 
   useEffect(() => {
@@ -19,14 +27,14 @@ const usePaginate = (data: IDataTableProps['data']) => {
     );
   }, [page, data, perPage]);
 
-  const setPage = useCallback(
-    (_page) => {
-      _setPage(_page);
+  const _setPage = useCallback(
+    (page: number) => {
+      setPage(page);
     },
-    [_setPage]
+    [setPage]
   );
 
-  return { page, setPage, perPage, length, pageData };
+  return { page, setPage: _setPage, perPage, length, pageData };
 };
 
 export default usePaginate;
