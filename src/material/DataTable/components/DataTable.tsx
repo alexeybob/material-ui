@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
-import { DataTableBody, DataTableHead } from '.';
+import { DataTableBody, DataTableHead, DataTablePaginate } from '.';
 
 const DataTable: FC = () => {
   return (
-    <table className="table">
-      <DataTableHead />
-      <DataTableBody />
-    </table>
+    <div>
+      <table className="table">
+        <DataTableHead />
+        <DataTableBody />
+      </table>
+      <DataTablePaginate />
+    </div>
   );
 };
 

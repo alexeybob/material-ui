@@ -4,8 +4,7 @@ import { IDataTableProps } from './models';
 import DataTableContext from './DataTableContext';
 
 const DataTableContainer: FC<IDataTableProps> = ({ data, columns }) => {
-  const { setData } = useContext(DataTableContext);
-  const { setColumns } = useContext(DataTableContext);
+  const { setData, setColumns } = useContext(DataTableContext);
 
   useEffect(() => {
     setData(data);

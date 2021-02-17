@@ -16,4 +16,5 @@ export interface IDataTableProps {
   actions?: (dataItem: any) => string;
   search?: boolean;
   columnFormatters?: any;
+  page?: number;
 }
