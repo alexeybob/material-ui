@@ -23,7 +23,7 @@ const userTableColumns: IColumns[] = [
     searchable: true
   },
   {
-    field: 'firstName',
+    field: 'lastName',
     headerName: 'Last Name',
     type: 'string',
     sortable: true,
