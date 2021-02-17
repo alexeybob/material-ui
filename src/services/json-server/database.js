@@ -2,8 +2,8 @@
  * https://www.npmjs.com/package/faker
  * https://www.npmjs.com/package/json-server
  */
+// eslint-disable-next-line no-undef,@typescript-eslint/no-var-requires
 const faker = require('faker');
-const format = require('date-fns/format');
 
 /**
  * List: http://localhost:3004/api/users
@@ -29,6 +29,7 @@ function generateUserById(id) {
   };
 }
 
+// eslint-disable-next-line no-undef
 module.exports = () => {
   const data = { users: [] };
 

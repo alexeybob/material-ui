@@ -1,3 +1,3 @@
-import columns from './columns';
+import userTableColumns from './userTableColumns';
 
-export { columns };
+export { userTableColumns };

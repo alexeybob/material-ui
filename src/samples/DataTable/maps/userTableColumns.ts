@@ -1,6 +1,6 @@
 import { IColumns } from 'material/DataTable/models';
 
-const columns: IColumns[] = [
+const userTableColumns: IColumns[] = [
   {
     field: 'id',
     headerName: 'Id',
@@ -66,4 +66,4 @@ const columns: IColumns[] = [
   }
 ];
 
-export default columns;
+export default userTableColumns;

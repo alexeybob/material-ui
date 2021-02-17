@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { findAllUsers } from '../../services/json-server/api/user-api';
-import { DataTable } from 'material/DataTable';
-import { columns } from './maps';
+import DataTable from 'material/DataTable';
+import { userTableColumns } from './maps';
 import { IUserModel } from '../../services/json-server/models';
 
 const DataTableSample: FC = () => {
@@ -13,7 +13,7 @@ const DataTableSample: FC = () => {
     });
   }, []);
 
-  return <DataTable columns={columns} data={users} />;
+  return <DataTable columns={userTableColumns} data={users} />;
 };
 
 export default DataTableSample;

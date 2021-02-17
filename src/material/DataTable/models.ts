@@ -8,3 +8,11 @@ export interface IColumns {
   searchable: boolean; // is searchable
   sortable: boolean; // is sortable
 }
+
+export interface IDataTableProps {
+  columns: IColumns[];
+  data: { [key: string]: string | number | boolean }[];
+  actions?: (dataItem: any) => string;
+  search?: boolean;
+  columnFormatters?: any;
+}
