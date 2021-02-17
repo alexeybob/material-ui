@@ -1,11 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import DataTableContext from './DataTableContext';
+import { IDataTableProps } from './models';
 
-interface IProps {}
+const DataTableProvider: FC = ({ children }) => {
+  const [data, setData] = useState<IDataTableProps['data']>([]);
+  const [columns, setColumns] = useState<IDataTableProps['columns']>([]);
 
-const DataTableProvider: FC<IProps> = ({ children }) => {
+  const _setData = useCallback((data: IDataTableProps['data']) => {
+    setData(data);
+  }, []);
+
+  const _setColumns = useCallback((columns: IDataTableProps['columns']) => {
+    setColumns(columns);
+  }, []);
+
   return (
-    <DataTableContext.Provider value={{ data: [] }}>{children}</DataTableContext.Provider>
+    <DataTableContext.Provider
+      value={{ data, setData: _setData, columns, setColumns: _setColumns }}
+    >
+      {children}
+    </DataTableContext.Provider>
   );
 };
 

@@ -1,16 +1,15 @@
-import React, { FC } from 'react';
-import { IDataTableProps } from '../models';
+import React, { FC, useContext } from 'react';
+import DataTableContext from '../DataTableContext';
 
-const DataTable: FC<IDataTableProps> = ({ data }) => {
+const DataTable: FC = () => {
+  const { data } = useContext(DataTableContext);
+
   return (
-    <>
-      <h1 className="mt-5">Data Table Sample</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id as number}>{item.name}</li>
-        ))}
-      </ul>
-    </>
+    <ul>
+      {data.map((item) => (
+        <li key={item.id as number}>{item.name}</li>
+      ))}
+    </ul>
   );
 };
 

@@ -13,7 +13,12 @@ const DataTableSample: FC = () => {
     });
   }, []);
 
-  return <DataTable columns={userTableColumns} data={users} />;
+  return (
+    <>
+      <h1 className="mt-5">Data Table Sample</h1>
+      <DataTable columns={userTableColumns} data={users} />
+    </>
+  );
 };
 
 export default DataTableSample;
