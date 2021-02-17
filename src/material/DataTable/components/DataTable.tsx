@@ -4,7 +4,7 @@ import DataTableBody from './DataTableBody';
 
 const DataTable: FC = () => {
   return (
-    <table>
+    <table className="table">
       <DataTableHead />
       <DataTableBody />
     </table>

@@ -7,6 +7,7 @@ export interface IColumns {
   description?: string; // short description
   searchable: boolean; // is searchable
   sortable: boolean; // is sortable
+  displayable: boolean; // is displayable
 }
 
 export interface IDataTableProps {

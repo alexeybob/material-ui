@@ -7,9 +7,9 @@ const DataTableHead: FC = () => {
   const thead = useMemo(
     () =>
       columns.map((column) => {
-        const { field, headerName } = column;
+        const { field, headerName, displayable } = column;
 
-        return <td key={field}>{headerName}</td>;
+        return displayable && <td key={field}>{headerName}</td>;
       }),
     [columns]
   );
