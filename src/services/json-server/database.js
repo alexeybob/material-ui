@@ -18,7 +18,6 @@ function generateUserById(id) {
 
   return {
     id,
-    name: `${firstName} ${lastName}`,
     firstName: firstName,
     lastName: lastName,
     gender: faker.name.gender(),

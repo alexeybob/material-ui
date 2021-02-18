@@ -12,7 +12,13 @@ const DataTableBody: FC = () => {
             const { field, displayable, valueGetter } = column;
 
             return (
-              displayable && <td key={index}>{valueGetter?.(item) || item[field]}</td>
+              displayable && (
+                <td key={index}>
+                  {valueGetter?.(item) || item[field] || (
+                    <span style={{ color: 'grey' }}>empty</span>
+                  )}
+                </td>
+              )
             );
           });
 

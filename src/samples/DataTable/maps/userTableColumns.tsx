@@ -16,7 +16,8 @@ const userTableColumns: IColumns[] = [
     type: 'string',
     sortable: true,
     searchable: true,
-    displayable: false
+    displayable: true,
+    valueGetter: (data) => `${data.firstName} ${data.lastName}`
   },
   {
     field: 'firstName',
@@ -24,7 +25,7 @@ const userTableColumns: IColumns[] = [
     type: 'string',
     sortable: true,
     searchable: true,
-    displayable: true
+    displayable: false
   },
   {
     field: 'lastName',
@@ -32,7 +33,7 @@ const userTableColumns: IColumns[] = [
     type: 'string',
     sortable: true,
     searchable: true,
-    displayable: true
+    displayable: false
   },
   {
     field: 'email',
