@@ -1,3 +1,4 @@
+import React from 'react';
 import { IColumns } from 'material/DataTable/models';
 
 const userTableColumns: IColumns[] = [
@@ -55,7 +56,13 @@ const userTableColumns: IColumns[] = [
     type: 'boolean',
     sortable: true,
     searchable: false,
-    displayable: true
+    displayable: true,
+    valueGetter: (data) =>
+      data.confirmed ? (
+        <div style={{ color: 'green' }}>Yes</div>
+      ) : (
+        <div style={{ color: 'red' }}>No</div>
+      )
   },
   {
     field: 'createdAt',
@@ -63,7 +70,8 @@ const userTableColumns: IColumns[] = [
     type: 'date',
     searchable: true,
     sortable: true,
-    displayable: true
+    displayable: true,
+    valueGetter: (data) => new Date(data.createdAt as string).toLocaleDateString()
   },
   {
     field: 'expiredAt',
@@ -71,7 +79,8 @@ const userTableColumns: IColumns[] = [
     type: 'date',
     sortable: true,
     searchable: true,
-    displayable: false
+    displayable: true,
+    valueGetter: (data) => new Date(data.expiredAt as string).toLocaleDateString()
   }
 ];
 

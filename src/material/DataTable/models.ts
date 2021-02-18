@@ -1,5 +1,9 @@
 export type tDataType = 'number' | 'boolean' | 'string' | 'datetime' | 'date' | 'time';
 
+interface IDataItem {
+  [key: string]: any;
+}
+
 export interface IColumns {
   field: string; // key
   headerName: string; // header name
@@ -8,11 +12,12 @@ export interface IColumns {
   searchable: boolean; // is searchable
   sortable: boolean; // is sortable
   displayable: boolean; // is displayable
+  valueGetter?: <T extends IDataItem>(data: T) => any;
 }
 
 export interface IDataTableProps {
   columns: IColumns[];
-  data: { [key: string]: string | number | boolean }[];
+  data: IDataItem[];
   actions?: (dataItem: any) => string;
   search?: boolean;
   columnFormatters?: any;

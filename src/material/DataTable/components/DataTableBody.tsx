@@ -9,9 +9,11 @@ const DataTableBody: FC = () => {
       data.length ? (
         data.map((item, index) => {
           const rows = columns.map((column, index) => {
-            const { field, displayable } = column;
+            const { field, displayable, valueGetter } = column;
 
-            return displayable && <td key={index}>{item[field]}</td>;
+            return (
+              displayable && <td key={index}>{valueGetter?.(item) || item[field]}</td>
+            );
           });
 
           return <tr key={index}>{rows}</tr>;
