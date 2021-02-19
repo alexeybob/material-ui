@@ -1,14 +1,18 @@
 import React, { FC, useCallback, useState } from 'react';
 import DataTableContext from './DataTableContext';
 import { IDataTableProps } from './models';
-import { usePagination, useFilter } from './hooks';
+import { usePagination, useFilter, useSort } from './hooks';
 
 const DataTableProvider: FC = ({ children }) => {
   const [data, setData] = useState<IDataTableProps['data']>([]);
   const [columns, setColumns] = useState<IDataTableProps['columns']>([]);
 
-  const { doFilter, filterResult } = useFilter(columns, data);
-  const { page, setPage, pageData, length, perPage } = usePagination(filterResult);
+  const { setFilterQuery, filteredData } = useFilter(columns, data);
+  const { sortField, sortDirection, setSortField, sortedData } = useSort(
+    columns,
+    filteredData
+  );
+  const { page, setPage, pageData, length, perPage } = usePagination(sortedData);
 
   const _setData = useCallback((data: IDataTableProps['data']) => {
     setData(data);
@@ -28,9 +32,17 @@ const DataTableProvider: FC = ({ children }) => {
   const handleSearch = useCallback(
     (query: string) => {
       setPage(1);
-      doFilter(query || '');
+      setFilterQuery(query || '');
     },
-    [doFilter, setPage]
+    [setFilterQuery, setPage]
+  );
+
+  const handleSort = useCallback(
+    (field: string) => {
+      setPage(1);
+      setSortField(field);
+    },
+    [setPage, setSortField]
   );
 
   return (
@@ -44,7 +56,10 @@ const DataTableProvider: FC = ({ children }) => {
         length,
         perPage,
         setPage: _setPage,
-        onSearch: handleSearch
+        onSearch: handleSearch,
+        onSort: handleSort,
+        sortField,
+        sortDirection
       }}
     >
       {children}

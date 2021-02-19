@@ -3,21 +3,21 @@ import { IDataItem, IDataTableProps } from '../models';
 
 interface IReturnObject {
   filterQuery: string;
-  filterResult: IDataItem[];
-  doFilter: (query: string) => void;
+  filteredData: IDataItem[];
+  setFilterQuery: (query: string) => void;
 }
 
 const useFilter = (
   columns: IDataTableProps['columns'],
   data: IDataTableProps['data']
 ): IReturnObject => {
-  const [filterQuery, setfilterQuery] = useState<string>('');
+  const [filterQuery, setFilterQuery] = useState<string>('');
 
-  const doFilter = useCallback((query: string) => {
-    setfilterQuery(query);
+  const _setFilterQuery = useCallback((query: string) => {
+    setFilterQuery(query);
   }, []);
 
-  const filterResult = useMemo(
+  const filteredData = useMemo(
     () =>
       filterQuery
         ? data.filter((item) => {
@@ -45,7 +45,7 @@ const useFilter = (
     [columns, data, filterQuery]
   );
 
-  return { filterQuery, filterResult, doFilter };
+  return { filterQuery, filteredData, setFilterQuery: _setFilterQuery };
 };
 
 export default useFilter;
