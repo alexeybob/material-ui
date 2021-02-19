@@ -1,6 +1,6 @@
 export type tDataType = 'number' | 'boolean' | 'string' | 'datetime' | 'date' | 'time';
 
-interface IDataItem {
+export interface IDataItem {
   [key: string]: any;
 }
 

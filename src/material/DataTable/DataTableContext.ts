@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { IDataTableProps } from './models';
 
@@ -10,18 +11,17 @@ const DataTableContext = React.createContext<{
   length: number;
   perPage: number;
   setPage: (columns: IDataTableProps['page']) => void;
+  onSearch: (query: string) => void;
 }>({
   data: [],
-  // eslint-disable-next-line no-console
   setData: () => console.log('setData handler should be defined'),
   columns: [],
-  // eslint-disable-next-line no-console
   setColumns: () => console.log('setColumns handler should be defined'),
   page: 1,
   length: 0,
   perPage: 0,
-  // eslint-disable-next-line no-console
-  setPage: () => console.log('setPage handler should be defined')
+  setPage: () => console.log('setPage handler should be defined'),
+  onSearch: () => console.log('onSearch handler should be defined')
 });
 
 export default DataTableContext;

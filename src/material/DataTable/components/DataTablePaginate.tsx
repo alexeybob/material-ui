@@ -53,7 +53,7 @@ const DataTablePaginate: FC = () => {
         {pager.map((pageNum) =>
           typeof pageNum == 'number' ? (
             <SPageButton
-              key={pageNum}
+              key={Math.random()}
               className={cn(pageNum === page && 'active')}
               onClick={() => handlePageClick(pageNum)}
             >

@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { IDataTableProps } from '../models';
 
-interface IReturnedObject {
+interface IReturnObject {
   perPage: number;
   length: number;
   page: number;
@@ -9,7 +9,7 @@ interface IReturnedObject {
   setPage: (page: number) => void;
 }
 
-const usePaginate = (data: IDataTableProps['data']): IReturnedObject => {
+const usePagination = (data: IDataTableProps['data']): IReturnObject => {
   const [page, setPage] = useState<number>(1);
   const [perPage] = useState<number>(15);
   const [length, setLength] = useState<number>(0);
@@ -37,4 +37,4 @@ const usePaginate = (data: IDataTableProps['data']): IReturnedObject => {
   return { page, setPage: _setPage, perPage, length, pageData };
 };
 
-export default usePaginate;
+export default usePagination;

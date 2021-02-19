@@ -1,3 +1,4 @@
-import usePaginate from './usePaginate';
+import usePagination from './usePagination';
+import useFilter from './useFilter';
 
-export { usePaginate };
+export { usePagination, useFilter };

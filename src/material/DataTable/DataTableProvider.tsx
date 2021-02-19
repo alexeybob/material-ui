@@ -1,13 +1,14 @@
 import React, { FC, useCallback, useState } from 'react';
 import DataTableContext from './DataTableContext';
 import { IDataTableProps } from './models';
-import { usePaginate } from './hooks';
+import { usePagination, useFilter } from './hooks';
 
 const DataTableProvider: FC = ({ children }) => {
   const [data, setData] = useState<IDataTableProps['data']>([]);
   const [columns, setColumns] = useState<IDataTableProps['columns']>([]);
 
-  const { page, setPage, pageData, length, perPage } = usePaginate(data);
+  const { doFilter, filterResult } = useFilter(columns, data);
+  const { page, setPage, pageData, length, perPage } = usePagination(filterResult);
 
   const _setData = useCallback((data: IDataTableProps['data']) => {
     setData(data);
@@ -24,6 +25,14 @@ const DataTableProvider: FC = ({ children }) => {
     [setPage]
   );
 
+  const handleSearch = useCallback(
+    (query: string) => {
+      setPage(1);
+      doFilter(query || '');
+    },
+    [doFilter, setPage]
+  );
+
   return (
     <DataTableContext.Provider
       value={{
@@ -34,7 +43,8 @@ const DataTableProvider: FC = ({ children }) => {
         page,
         length,
         perPage,
-        setPage: _setPage
+        setPage: _setPage,
+        onSearch: handleSearch
       }}
     >
       {children}

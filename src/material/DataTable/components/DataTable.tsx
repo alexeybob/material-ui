@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import { DataTableBody, DataTableHead, DataTablePaginate } from '.';
+import { DataTableBody, DataTableHead, DataTablePaginate, DataTableSearch } from '.';
 
 const DataTable: FC = () => {
   return (
     <div>
+      <DataTableSearch />
       <table className="table">
         <DataTableHead />
         <DataTableBody />

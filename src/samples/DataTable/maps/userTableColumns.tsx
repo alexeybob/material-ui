@@ -7,7 +7,7 @@ const userTableColumns: IColumns[] = [
     headerName: 'Id',
     type: 'number',
     sortable: true,
-    searchable: true,
+    searchable: false,
     displayable: true
   },
   {
@@ -24,7 +24,7 @@ const userTableColumns: IColumns[] = [
     headerName: 'First Name',
     type: 'string',
     sortable: true,
-    searchable: true,
+    searchable: false,
     displayable: false
   },
   {
@@ -32,7 +32,7 @@ const userTableColumns: IColumns[] = [
     headerName: 'Last Name',
     type: 'string',
     sortable: true,
-    searchable: true,
+    searchable: false,
     displayable: false
   },
   {
@@ -48,7 +48,7 @@ const userTableColumns: IColumns[] = [
     headerName: 'Gender',
     type: 'string',
     sortable: true,
-    searchable: true,
+    searchable: false,
     displayable: false
   },
   {
@@ -56,7 +56,7 @@ const userTableColumns: IColumns[] = [
     headerName: 'Confirmed',
     type: 'boolean',
     sortable: true,
-    searchable: false,
+    searchable: true,
     displayable: true,
     valueGetter: (data) =>
       data.confirmed ? (
@@ -69,8 +69,8 @@ const userTableColumns: IColumns[] = [
     field: 'createdAt',
     headerName: 'Created At',
     type: 'date',
-    searchable: true,
     sortable: true,
+    searchable: true,
     displayable: true,
     valueGetter: (data) => new Date(data.createdAt as string).toLocaleDateString()
   },

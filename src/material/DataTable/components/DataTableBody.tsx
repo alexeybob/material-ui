@@ -7,13 +7,13 @@ const DataTableBody: FC = () => {
   const tbody = useMemo(
     () =>
       data.length ? (
-        data.map((item, index) => {
-          const rows = columns.map((column, index) => {
+        data.map((item, itemIndex) => {
+          const rows = columns.map((column, columnIndex) => {
             const { field, displayable, valueGetter } = column;
 
             return (
               displayable && (
-                <td key={index}>
+                <td key={`Column-${field}-${columnIndex}`}>
                   {valueGetter?.(item) || item[field] || (
                     <span style={{ color: 'grey' }}>empty</span>
                   )}
@@ -22,7 +22,7 @@ const DataTableBody: FC = () => {
             );
           });
 
-          return <tr key={index}>{rows}</tr>;
+          return <tr key={`Item${itemIndex}`}>{rows}</tr>;
         })
       ) : (
         <tr>
