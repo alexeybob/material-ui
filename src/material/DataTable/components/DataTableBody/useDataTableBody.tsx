@@ -1,5 +1,6 @@
 import React, { useContext, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from 'framer-motion';
 import DataTableContext from '../../DataTableContext';
 
 const useDataTableBody = (): JSX.Element[] | JSX.Element => {
@@ -23,14 +24,28 @@ const useDataTableBody = (): JSX.Element[] | JSX.Element => {
             );
           });
 
-          return <tr key={uuidv4()}>{rows}</tr>;
+          return (
+            <motion.tr
+              key={uuidv4()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ ease: 'easeOut', duration: 0.5 }}
+            >
+              {rows}
+            </motion.tr>
+          );
         })
       ) : (
-        <tr key={uuidv4()}>
+        <motion.tr
+          key={uuidv4()}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ease: 'easeOut', duration: 1, delay: 1 }}
+        >
           <td align="center" colSpan={columns.length}>
             There are no data
           </td>
-        </tr>
+        </motion.tr>
       ),
     [columns, data]
   );
