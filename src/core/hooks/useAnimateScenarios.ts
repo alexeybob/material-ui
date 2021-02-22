@@ -15,9 +15,7 @@ const useAnimateScenarios = (
   AnimationControls,
   (scenarios: tScenarios, callback?: tCallback) => Promise<void>
 ] => {
-  const [scenariosOptions, setScenariosOptions] = useState<IScenarioOptions[] | null>(
-    null
-  );
+  const [scenariosOptions, setScenariosOptions] = useState<IScenarioOptions[]>([]);
   const controls = useAnimation();
 
   const findScenario = useCallback(
