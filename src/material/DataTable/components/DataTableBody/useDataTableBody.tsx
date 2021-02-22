@@ -1,11 +1,11 @@
-import React, { FC, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import DataTableContext from '../DataTableContext';
+import DataTableContext from '../../DataTableContext';
 
-const DataTableBody: FC = () => {
+const useDataTableBody = (): JSX.Element[] | JSX.Element => {
   const { data, columns } = useContext(DataTableContext);
 
-  const tbody = useMemo(
+  return useMemo(
     () =>
       data.length ? (
         data.map((item) => {
@@ -34,8 +34,6 @@ const DataTableBody: FC = () => {
       ),
     [columns, data]
   );
-
-  return <tbody>{tbody}</tbody>;
 };
 
-export default DataTableBody;
+export default useDataTableBody;

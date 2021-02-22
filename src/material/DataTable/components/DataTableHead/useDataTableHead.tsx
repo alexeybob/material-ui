@@ -1,12 +1,12 @@
-import React, { FC, useCallback, useContext, useMemo } from 'react';
-import styled from 'styled-components';
+import React, { useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
-import DataTableContext from '../DataTableContext';
-import ascIcon from '../assets/asc.svg';
-import descIcon from '../assets/desc.svg';
-import sortableIcon from '../assets/sortable.svg';
+import styled from 'styled-components';
+import DataTableContext from '../../DataTableContext';
+import sortableIcon from '../../assets/sortable.svg';
+import ascIcon from '../../assets/asc.svg';
+import descIcon from '../../assets/desc.svg';
 
-const DataTableHead: FC = () => {
+const useDataTableHead = (): (false | JSX.Element)[] => {
   const { columns, onSort, sortField, sortDirection } = useContext(DataTableContext);
 
   const handleSort = useCallback(
@@ -16,7 +16,7 @@ const DataTableHead: FC = () => {
     [onSort]
   );
 
-  const thead = useMemo(
+  return useMemo(
     () =>
       columns.map((column) => {
         const { field, headerName, displayable, sortable } = column;
@@ -42,15 +42,9 @@ const DataTableHead: FC = () => {
       }),
     [columns, handleSort, sortDirection, sortField]
   );
-
-  return (
-    <thead>
-      <tr>{thead}</tr>
-    </thead>
-  );
 };
 
-export default DataTableHead;
+export default useDataTableHead;
 
 const SColumnHeader = styled.div`
   &.sortable {

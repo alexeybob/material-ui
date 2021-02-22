@@ -1,21 +1,9 @@
-import React, { FC, useCallback, useContext, useMemo } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
-import DataTableContext from '../DataTableContext';
+import useDataTableSearch from './useDataTableSearch';
 
 const DataTableSearch: FC = () => {
-  const { columns, onSearch } = useContext(DataTableContext);
-
-  const handleSearch = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
-      onSearch(e.currentTarget.value);
-    },
-    [onSearch]
-  );
-
-  const display = useMemo(
-    () => !!columns.find((column) => column.searchable && column.displayable),
-    [columns]
-  );
+  const { display, handleSearch } = useDataTableSearch();
 
   return display ? (
     <SSearchInput type={'text'} placeholder={'Search ...'} onChange={handleSearch} />
