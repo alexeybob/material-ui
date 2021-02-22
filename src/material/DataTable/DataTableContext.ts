@@ -4,9 +4,7 @@ import { IDataTableProps } from './models';
 
 const DataTableContext = React.createContext<{
   data: IDataTableProps['data'];
-  setData: (data: IDataTableProps['data']) => void;
   columns: IDataTableProps['columns'];
-  setColumns: (columns: IDataTableProps['columns']) => void;
   page: IDataTableProps['page'];
   length: number;
   perPage: number;
@@ -17,9 +15,7 @@ const DataTableContext = React.createContext<{
   sortDirection: string;
 }>({
   data: [],
-  setData: () => console.log('setData handler should be defined'),
   columns: [],
-  setColumns: () => console.log('setColumns handler should be defined'),
   page: 1,
   length: 0,
   perPage: 0,

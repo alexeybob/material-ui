@@ -1,26 +1,15 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback } from 'react';
 import DataTableContext from './DataTableContext';
 import { IDataTableProps } from './models';
 import { usePagination, useFilter, useSort } from './hooks';
 
-const DataTableProvider: FC = ({ children }) => {
-  const [data, setData] = useState<IDataTableProps['data']>([]);
-  const [columns, setColumns] = useState<IDataTableProps['columns']>([]);
-
+const DataTableProvider: FC<IDataTableProps> = ({ children, data, columns }) => {
   const { setFilterQuery, filteredData } = useFilter(columns, data);
   const { sortField, sortDirection, setSortField, sortedData } = useSort(
     columns,
     filteredData
   );
   const { page, setPage, pageData, length, perPage } = usePagination(sortedData);
-
-  const _setData = useCallback((data: IDataTableProps['data']) => {
-    setData(data);
-  }, []);
-
-  const _setColumns = useCallback((columns: IDataTableProps['columns']) => {
-    setColumns(columns);
-  }, []);
 
   const _setPage = useCallback(
     (page: IDataTableProps['page']) => {
@@ -49,9 +38,7 @@ const DataTableProvider: FC = ({ children }) => {
     <DataTableContext.Provider
       value={{
         data: pageData,
-        setData: _setData,
         columns,
-        setColumns: _setColumns,
         page,
         length,
         perPage,

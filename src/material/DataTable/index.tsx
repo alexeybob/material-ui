@@ -5,8 +5,8 @@ import { IDataTableProps } from './models';
 
 const DataTable: FC<IDataTableProps> = (props) => {
   return (
-    <DataTableProvider>
-      <DataTableContainer {...props} />
+    <DataTableProvider {...props}>
+      <DataTableContainer />
     </DataTableProvider>
   );
 };

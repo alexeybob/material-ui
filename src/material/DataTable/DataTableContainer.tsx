@@ -1,16 +1,7 @@
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC } from 'react';
 import { DataTable } from './components';
-import { IDataTableProps } from './models';
-import DataTableContext from './DataTableContext';
 
-const DataTableContainer: FC<IDataTableProps> = ({ data, columns }) => {
-  const { setData, setColumns } = useContext(DataTableContext);
-
-  useEffect(() => {
-    setData(data);
-    setColumns(columns);
-  }, [columns, data, setColumns, setData]);
-
+const DataTableContainer: FC = () => {
   return <DataTable />;
 };
 
