@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
-import DataTableContext from '../../DataTableContext';
+import DataTableContext from 'material/DataTable/DataTableContext';
 
 const useDataTableBody = (): JSX.Element[] | JSX.Element => {
   const { data, columns } = useContext(DataTableContext);

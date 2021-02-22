@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import DataTableContext from '../../DataTableContext';
+import DataTableContext from 'material/DataTable/DataTableContext';
 
 interface IReturnObject {
   pages: number;

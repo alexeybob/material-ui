@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useMemo } from 'react';
-import DataTableContext from '../../DataTableContext';
+import DataTableContext from 'material/DataTable/DataTableContext';
 
 interface IReturnObject {
   handleSearch: (e: React.FormEvent<HTMLInputElement>) => void;

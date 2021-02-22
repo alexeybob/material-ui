@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import styled from 'styled-components';
-import DataTableContext from '../../DataTableContext';
+import DataTableContext from 'material/DataTable/DataTableContext';
 import sortableIcon from './assets/sortable.svg';
 import ascIcon from './assets/asc.svg';
 import descIcon from './assets/desc.svg';

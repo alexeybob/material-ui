@@ -1,10 +1,5 @@
 import React, { FC } from 'react';
-import {
-  DataTableBody,
-  DataTableHead,
-  DataTablePaginate,
-  DataTableSearch
-} from '../index';
+import { DataTableBody, DataTableHead, DataTablePaginate, DataTableSearch } from '..';
 
 const DataTable: FC = () => {
   return (
