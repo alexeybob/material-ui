@@ -2,9 +2,9 @@ import React, { useCallback, useContext, useMemo } from 'react';
 import cn from 'classnames';
 import styled from 'styled-components';
 import DataTableContext from '../../DataTableContext';
-import sortableIcon from '../../assets/sortable.svg';
-import ascIcon from '../../assets/asc.svg';
-import descIcon from '../../assets/desc.svg';
+import sortableIcon from './assets/sortable.svg';
+import ascIcon from './assets/asc.svg';
+import descIcon from './assets/desc.svg';
 
 const useDataTableHead = (): (false | JSX.Element)[] => {
   const { columns, onSort, sortField, sortDirection } = useContext(DataTableContext);
